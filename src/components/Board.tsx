@@ -143,7 +143,9 @@ const Board = ({ players, ready, goBack }: Props) => {
 	const handleClick = (i: number) => {
 		if (info[i] === '') {
 			let shape = turn === players[0] ? 'X' : 'O'
-			info[i] = shape
+			let arr = [...info]
+			arr[i] = shape
+			setInfo(arr)
 			chkWinner()
 			setTurn(turn === players[0] ? players[1] : players[0])
 		}
